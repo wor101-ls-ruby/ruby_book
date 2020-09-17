@@ -20,7 +20,7 @@ anagram_index = []
 words_ordered.each do |word| 
   words_ordered.each do |x|
     if word == x
-      puts "#{word} and #{x} match!"
+     # puts "#{word} and #{x} match!"
       
       anagram_index.push(words_ordered.index(x))    # creates array of all index locations in words_ordered that have the same letters
 
@@ -28,7 +28,15 @@ words_ordered.each do |word|
   end 
 end 
 
-anagram_index.each { |n| puts n }
+# create a new array of only the words that match the index locations stored in anagram_index
+anagram = Array.new
+
+#remove duplicates from indes array
+anagram_index.uniq!
+anagram_index.each { |index| anagram.push(words[index])}
+
+
+anagram.each { |word| print "#{word}, " }
 
 
     
